@@ -14,8 +14,7 @@ Examples
 Version
 -------
 
-//TODO
-[ ![Download](https://api.bintray.com/packages/tengioltd/maven/graffiti/images/download.svg) ](https://bintray.com/tengioltd/maven/graffiti/_latestVersion)
+[ ![Download](https://api.bintray.com/packages/tengioltd/maven/android-graffiti/images/download.svg) ](https://bintray.com/tengioltd/maven/android-graffiti/_latestVersion)
 
 
 HOW TO
