@@ -16,9 +16,14 @@ import java.util.List;
 
 public class PostprocessorPainter extends BasePostprocessor {
 
+
     public static void build(SimpleDraweeView draweeView, Uri uri, List<? extends Overlay> overlays) {
+        build(draweeView, uri, overlays, false);
+    }
+
+    public static void build(SimpleDraweeView draweeView, Uri uri, List<? extends Overlay> overlays, boolean debugMode) {
         ImageRequest request = ImageRequestBuilder.newBuilderWithSource(uri)
-                .setPostprocessor(new PostprocessorPainter(overlays))
+                .setPostprocessor(new PostprocessorPainter(overlays, debugMode))
                 .build();
 
         PipelineDraweeController controller = (PipelineDraweeController)
@@ -30,9 +35,11 @@ public class PostprocessorPainter extends BasePostprocessor {
     }
 
     private final List<? extends Overlay> overlays;
+    private final boolean debugMode;
 
-    public PostprocessorPainter(List<? extends Overlay> overlays) {
+    public PostprocessorPainter(List<? extends Overlay> overlays, boolean debugMode) {
         this.overlays = overlays;
+        this.debugMode = debugMode;
     }
 
     @Override
@@ -50,7 +57,7 @@ public class PostprocessorPainter extends BasePostprocessor {
         }
         for (Overlay overlay : overlays) {
             try {
-                overlay.draw(canvas, paint);
+                overlay.draw(canvas, paint, debugMode);
             } catch (Exception e) {
                 e.printStackTrace();
             }

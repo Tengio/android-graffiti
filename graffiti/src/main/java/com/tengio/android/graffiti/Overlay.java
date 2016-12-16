@@ -5,5 +5,5 @@ import android.graphics.Paint;
 
 public interface Overlay {
 
-    void draw(Canvas canvas, Paint paint);
+    void draw(Canvas canvas, Paint paint, boolean debugMode);
 }

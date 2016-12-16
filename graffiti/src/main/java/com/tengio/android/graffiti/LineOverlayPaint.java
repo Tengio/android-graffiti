@@ -11,13 +11,10 @@ public class LineOverlayPaint extends FrameScalingOverlay {
     }
 
     @Override
-    public void draw(Canvas canvas, Paint paint) {
+    public void draw(Canvas canvas, Paint paint, boolean debugMode) {
+        super.draw(canvas, paint, debugMode);
         paint.setColor(Color.BLACK);
-        paint.setTextSize(20);
-        canvas.drawLine(convertX(canvas, getX()),
-                convertY(canvas, getY()),
-                convertX(canvas, getEndX()),
-                convertY(canvas, getEndY()),
-                paint);
+        paint.setTextSize(20); //TODO
+        canvas.drawLine(getLeft(), getTop(), getRight(), getBottom(), paint);
     }
 }
