@@ -68,7 +68,7 @@ public abstract class FrameScalingOverlay implements Overlay {
     }
 
     private void debugRect(Canvas canvas) {
-        Paint p = new Paint();
+        Paint p = new Paint(Paint.ANTI_ALIAS_FLAG);
         p.setColor(Color.RED);
         p.setStyle(Paint.Style.STROKE);
         p.setStrokeWidth(2);

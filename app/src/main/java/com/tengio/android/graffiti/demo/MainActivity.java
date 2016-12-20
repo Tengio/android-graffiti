@@ -6,15 +6,15 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.facebook.common.util.UriUtil;
 import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.drawee.drawable.ScalingUtils;
-import com.facebook.drawee.view.SimpleDraweeView;
+import com.tengio.android.fresco_zoomable.SimpleZoomableDraweeView;
+import com.tengio.android.graffiti.HtmlTextOverlayPaint;
+import com.tengio.android.graffiti.Overlay;
 import com.tengio.android.graffiti.PostprocessorPainter;
-import com.tengio.android.graffiti.TextOverlayPaint;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,15 +23,19 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
-        SimpleDraweeView overlayView = (SimpleDraweeView) findViewById(R.id.example);
-        overlayView.getHierarchy().setActualImageScaleType(ScalingUtils.ScaleType.CENTER_INSIDE);
+        SimpleZoomableDraweeView overlayView = (SimpleZoomableDraweeView) findViewById(R.id.example);
         Uri uri = new Uri.Builder()
                 .scheme(UriUtil.LOCAL_RESOURCE_SCHEME)
                 .path(String.valueOf(R.drawable.a_drunk_developer))
                 .build();
-        PostprocessorPainter.build(overlayView, uri, Arrays.asList(
-                new TextOverlayPaint("THE HAT", 0.51815585475323445, 0, 0.712334552075814, 0.90100593049157859, 0.2161676595217783, 0.060847496164525172),
-                new TextOverlayPaint("THE FAKE HAPPY SMILE", 0.51815585475323445, 0, 0.212334552075814, 0.50100593049157859, 0.2161676595217783, 0.060847496164525172),
-                new TextOverlayPaint("A DEVELOPER THAT NEEDS YOUR HELP!", 0.51815585475323445, 0, 0.612334552075814, 0.20100593049157859, 0.2161676595217783, 0.060847496164525172)));
+        List<? extends Overlay> overlays = Arrays.asList(
+                new HtmlTextOverlayPaint("THE HAT", 0.5, 0,
+                                         0.2, 0.2, 0.5, 0.3),
+                new HtmlTextOverlayPaint("THE WIG", 0.5, 0,
+                                         0.2, 0.4, 0.5, 0.5),
+                new HtmlTextOverlayPaint("A DEVELOPER THAT NEEDS YOUR HELP!", 0.5, 0,
+                                         0.4, 0.7, 0.9, 0.8)
+        );
+        new PostprocessorPainter.Builder().load(uri).with(overlays).debug().into(overlayView);
     }
 }

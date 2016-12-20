@@ -10,10 +10,10 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity">
 
-    <com.facebook.drawee.view.SimpleDraweeView
+    <com.tengio.android.fresco_zoomable.SimpleZoomableDraweeView
         android:id="@+id/example"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:adjustViewBounds="true" />
+        />
 
 </RelativeLayout>

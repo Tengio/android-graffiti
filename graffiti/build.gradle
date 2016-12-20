@@ -3,7 +3,7 @@ apply plugin: 'com.jfrog.bintray'
 apply plugin: 'com.github.dcendents.android-maven'
 apply from: '../config/quality.gradle'
 
-project.version = "0.2.1"
+project.version = "0.2.7"
 project.group = "com.tengio.android"
 
 android {
@@ -13,8 +13,8 @@ android {
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 25
-        versionCode 3
-        versionName "0.2.1"
+        versionCode 8
+        versionName "0.2.7"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -26,7 +26,7 @@ android {
 }
 
 dependencies {
-    compile 'com.facebook.fresco:fresco:0.14.1'
+    compile 'com.facebook.fresco:fresco:1.0.0'
     testCompile 'junit:junit:4.12'
 }
 
