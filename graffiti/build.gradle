@@ -31,8 +31,8 @@ dependencies {
 }
 
 bintray {
-    user = BINTRAY_USER
-    key = BINTRAY_KEY
+    user = System.getProperty('BINTRAY_USER', '')
+    key = System.getProperty('BINTRAY_KEY', '')
     configurations = ['archives']
     pkg {
         repo = 'maven'
