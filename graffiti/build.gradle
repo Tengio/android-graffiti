@@ -1,5 +1,4 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.jfrog.bintray'
 apply plugin: 'com.tengio.gradle.tengio-checkstyle-plugin'
 apply from: 'https://raw.githubusercontent.com/Tengio/tengio-bintray-script/master/bintray.gradle'
 
@@ -27,18 +26,9 @@ dependencies {
     testCompile 'junit:junit:4.12'
 }
 
-project.version = "0.3.0"
-project.group = "com.tengio.android"
-
 bintray {
     pkg {
         name = 'android-graffiti'
         vcsUrl = 'https://github.com/Tengio/android-graffiti.git'
     }
 }
-
-artifacts {
-    archives javadocJar
-    archives sourcesJar
-}
-

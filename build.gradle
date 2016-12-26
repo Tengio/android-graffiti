@@ -6,9 +6,9 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.2.3'
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.6'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
         classpath 'io.fabric.tools:gradle:1.+'
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
         classpath "gradle.plugin.com.tengio.gradle:tengio-checkstyle-plugin:1.0"
     }
 }
